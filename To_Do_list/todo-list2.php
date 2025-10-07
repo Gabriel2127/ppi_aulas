@@ -1,16 +1,16 @@
 <?php 
 
 $localhost = 'localhost'; 
-$usario = 'root';
+$usuario = 'root';
 $senha = '';
 $database = 'todo_list'; 
 
-$conn = mysqli_connect($localhost,$usario,$senha, $database);
+$conn = new mysql($localhost,$usario,$senha, $database);
 
 if($conn->connect_error){
     die('Deu erro na conexão'. $conn->connect_error);
 }
-
+ 
 # criacao de tarefas
 if(isset($_POST['descricao'])){
     $descricao = $conn->real_escape_string($_POST['descricao']);
